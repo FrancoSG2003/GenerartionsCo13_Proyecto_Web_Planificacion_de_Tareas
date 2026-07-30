@@ -1,0 +1,172 @@
+:root {
+    --fondoPrincipal: #020b20;
+    --fondoSecundario: #09142F;
+    --color1: #7C5CFF;
+    --color2: #A855F7;
+    --Acento: #3B82F6;
+    --textoPrincipal: #F8FAFC;
+    --textoSecundario: #94A3B8;
+    --bordes: #1E293B;
+}
+
+#nav{
+    background-color: var(--fondoSecundario) !important;
+    padding: 12px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+
+#nav .navbar-brand{
+    color: var(--textoPrincipal);
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#nav .navbar-brand img{
+    width: 42px;
+    height: 42px;
+}
+
+#btnAgregarTarea {
+    background-color: var(--color1);
+    border: solid 1px var(--bordes);
+    color: var(--textoPrincipal);
+    transition: all .25s ease;
+    box-shadow: 0 6px 18px rgba(124, 92, 255, 0.35);
+}
+
+#btnAgregarTarea:hover{
+    transform: translateY(-2px);
+    background-color: #9375FF;
+    box-shadow: 0 10px 28px rgba(124,92,255,.45);
+}
+
+#padre{
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 80%;
+}
+
+#formTarea{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,.3);
+    z-index: 1000;
+}
+
+#overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#tituloLista {
+    background-color: var(--fondoSecundario);
+    color: var(--textoPrincipal);
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px 12px 0 0;
+    border: 1px solid var(--bordes);
+    border-bottom: none;
+}
+
+#tituloLista h3{
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#listaTareas{
+    min-height: 450px;
+    background-color: #0F172A;
+    border: 1px solid var(--bordes);
+    border-radius: 0 0 12px 12px;
+    padding: 20px;
+}
+
+.tarea{
+    background-color: var(--fondoSecundario);
+    border: 1px solid var(--bordes);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: var(--textoPrincipal);
+    box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+
+
+.tarea-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+
+.tarea-header h4{
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    flex: 1;
+}
+
+
+.fecha{
+    color: var(--textoSecundario);
+    font-size: .9rem;
+    white-space: nowrap;
+}
+
+
+.descripcion{
+    margin-top: 12px;
+    color: var(--textoSecundario);
+}
+
+
+.acciones{
+    display: flex;
+    gap: 8px;
+}
+
+
+.acciones button{
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--textoPrincipal);
+    transition: .2s ease;
+}
+
+
+.btn-completar{
+    background-color: #22C55E;
+}
+
+
+.btn-completar:hover{
+    background-color: #16A34A;
+}
+
+
+.btn-eliminar{
+    background-color: #EF4444;
+}
+
+
+.btn-eliminar:hover{
+    background-color: #DC2626;
+}
