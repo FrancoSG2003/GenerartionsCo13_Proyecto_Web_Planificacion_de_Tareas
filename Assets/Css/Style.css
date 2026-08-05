@@ -89,7 +89,9 @@
 }
 
 #listaTareas{
-    min-height: 450px;
+    height: 450px;
+    overflow-y: auto;
+    overflow-x: hidden;
     background-color: #0F172A;
     border: 1px solid var(--bordes);
     border-radius: 0 0 12px 12px;
@@ -97,7 +99,7 @@
 }
 
 .tarea{
-    background-color: var(--fondoSecundario);
+    background-color: var(--bordes);
     border: 1px solid var(--bordes);
     border-radius: 12px;
     padding: 15px;
@@ -107,7 +109,7 @@
 }
 
 
-.tarea-header{
+.tarea-head{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -115,13 +117,18 @@
 }
 
 
-.tarea-header h4{
+.tarea-header h5{
     margin: 0;
     font-size: 1.1rem;
     font-weight: 600;
     flex: 1;
 }
 
+.card-body{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
 .fecha{
     color: var(--textoSecundario);
@@ -132,13 +139,14 @@
 
 .descripcion{
     margin-top: 12px;
-    color: var(--textoSecundario);
+    color: var(--textoPrincipal);
+    flex: 1;
 }
 
 
 .acciones{
     display: flex;
-    gap: 8px;
+    gap: 2px;
 }
 
 
@@ -147,6 +155,7 @@
     padding: 6px 10px;
     border-radius: 8px;
     cursor: pointer;
+    border: solid 1px black;
     color: var(--textoPrincipal);
     transition: .2s ease;
 }
@@ -158,6 +167,7 @@
 
 
 .btn-completar:hover{
+    transform: translateY(-5px);
     background-color: #16A34A;
 }
 
@@ -168,5 +178,6 @@
 
 
 .btn-eliminar:hover{
+    transform: translateY(-5px);
     background-color: #DC2626;
 }

@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="Assets/Css/Style.css">
 </head>
 <body>
@@ -20,11 +22,11 @@
     </header>
     
 
-    <section class="row">
+    <section>
 
         <div id="padre">
             <div class="row g-4 align-items-start">
-                <div class="col md-3">
+                <div class="col-md-3">
                     <button id="btnAgregarTarea" class="btn btn-primary">
                         Agregar tarea
                     </button>
@@ -53,15 +55,62 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 ">
                     <div id="tituloLista">
                         <h3>Lista de tareas</h3>
                     </div>
-                    <div id="listaTareas"></div>
+                    <div id="listaTareas">
+                        <div class="card tarea">   <!---DISEÑO CARD-->
+                            <div class="tarea-head">
+                                <h5 class="card-header"><b>Estudiar Java</b></h5>
+                                <span class="fecha"><b>05/08/2026</b></span>
+                            </div>
+                            <div class="card-body acciones">
+                                <p class="card-text descripcion">Estudiar los tipo de datos y las operaciones en java</p>
+                                <button class="btn-completar"><i class="bi bi-bookmark-check-fill">Finalizada</i></button>
+                                <button class="btn-eliminar"><i class="bi bi-trash3-fill">Borrar</i></button>
+                            </div>
+                        </div>
+                        <div class="card tarea">   <!---DISEÑO CARD-->
+                            <div class="tarea-head">
+                                <h5 class="card-header"><b>Estudiar Git</b></h5>
+                                <span class="fecha"><b>05/08/2026</b></span>
+                            </div>
+                            <div class="card-body acciones">
+                                <p class="card-text descripcion">Estudiar las ramas de git y los pull request</p>
+                                <button class="btn-completar"><i class="bi bi-bookmark-check-fill">Finalizada</i></button>
+                                <button class="btn-eliminar"><i class="bi bi-trash3-fill">Borrar</i></button>
+                            </div>
+                        </div>
+                        <div class="card tarea">   <!---DISEÑO CARD-->
+                            <div class="tarea-head">
+                                <h5 class="card-header"><b>Estudiar Css</b></h5>
+                                <span class="fecha"><b>05/08/2026</b></span>
+                            </div>
+                            <div class="card-body acciones">
+                                <p class="card-text descripcion">Estudiar transiciones y hover en css</p>
+                                <button class="btn-completar"><i class="bi bi-bookmark-check-fill">Finalizada</i></button>
+                                <button class="btn-eliminar"><i class="bi bi-trash3-fill">Borrar</i></button>
+                            </div>
+                        </div>
+                        <div class="card tarea">   <!---DISEÑO CARD-->
+                            <div class="tarea-head">
+                                <h5 class="card-header"><b>Diseñar el portafolio</b></h5>
+                                <span class="fecha"><b>05/08/2026</b></span>
+                            </div>
+                            <div class="card-body acciones">
+                                <p class="card-text descripcion">Hacer los wireframes del portafolio</p>
+                                <button class="btn-completar"><i class="bi bi-bookmark-check-fill">Finalizada</i></button>
+                                <button class="btn-eliminar"><i class="bi bi-trash3-fill">Borrar</i></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
 
     <div id="overlay" class="d-none"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
