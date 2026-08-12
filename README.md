@@ -7,4 +7,5 @@ Trello Link:
 https://trello.com/b/DqnRK4Xa/proyectofinalgen13
 
 link web:
+https://francosg2003.github.io/GenerartionsCo13_Proyecto_Web_Planificacion_de_Tareas/
 
