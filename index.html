@@ -35,18 +35,21 @@
                         <div class="mb-3">
                             <label for="nombreTarea" class="form-label">Nombre de la tarea</label>
                             <input type="text" id="nombreTarea" class="form-control" placeholder="Ejemplo: crear contenedores">
+                            <div id="errorNombre" class="mensaje-error"></div>
                         </div>
                         <div class="mb-3">
                             <label for="fechaTarea" class="form-label">Fecha de entrega</label>
                             <input type="date" id="fechaTarea" class="form-control" placeholder="Ingrese la fecha de entrega">
+                            <div id="errorFecha" class="mensaje-error"></div>
                         </div>
                         <div class="mb-3">
                             <label for="descripcion" class="form-label">Descripcion</label>
                             <textarea name="" id="descripcion" class="form-control" rows="5" placeholder="Ingrese la descripcion de la tarea"></textarea>
+                            <div id="errorDescripcion" class="mensaje-error"></div>
                         </div>
 
                         <div class="d-flex gap-2">
-                            <button type="button" id="btnGuardar" class="btn btn-success">
+                            <button type="submit" id="btnGuardar" class="btn btn-success">
                                 Guardar
                             </button>
                             <button type="button" id="btnCancelar" class="btn btn-secondary">

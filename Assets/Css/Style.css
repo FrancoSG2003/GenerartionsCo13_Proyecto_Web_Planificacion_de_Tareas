@@ -181,3 +181,16 @@
     transform: translateY(-5px);
     background-color: #DC2626;
 }
+
+.mensaje-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.campo-error {
+    border: none;
+    border-bottom: 2px solid red;
+    border-left: 1px solid red;
+    border-right: 1px solid red;
+}
