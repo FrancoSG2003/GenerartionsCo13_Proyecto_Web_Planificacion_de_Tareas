@@ -79,3 +79,18 @@ fechaTarea.addEventListener("input", function () {
 descripcionTarea.addEventListener("input", function () {
     quitarError(descripcionTarea, errorDescripcion);
 });
+
+const taskManager = new TaskManager();
+console.log(taskManager.tasks);
+
+const btnCompletar = document.querySelectorAll(".btn-completar");
+
+for (let i = 0; i < btnCompletar.length; i++) {
+    btnCompletar[i].addEventListener("click", completada);
+}
+
+function completada(event) {
+    const tarea = event.currentTarget.closest(".tarea");
+
+    tarea.classList.add("completada");
+}
