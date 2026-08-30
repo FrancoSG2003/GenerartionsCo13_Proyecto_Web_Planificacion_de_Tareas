@@ -14,11 +14,10 @@ const errorNombre = document.getElementById("errorNombre");
 const errorFecha = document.getElementById("errorFecha");
 const errorDescripcion = document.getElementById("errorDescripcion");
 
+const taskManager = new TaskManager();
+
 const hoy = new Date().toISOString().split("T")[0];
 fechaTarea.min = hoy;
-
-botonAgregar.addEventListener("click", saleFormulario);
-botonCancelar.addEventListener("click", guardarFormulario);
 
 function saleFormulario() {
     formulario.classList.remove("d-none")
@@ -29,9 +28,10 @@ function guardarFormulario(){
     formulario.classList.add("d-none");
     overlay.classList.add("d-none");
 
-    nombreTarea.value = "";
-    fechaTarea.value = "";
-    descripcionTarea.value = "";
+    formulario.reset();
+    quitarError(nombreTarea, errorNombre); 
+    quitarError(fechaTarea, errorFecha); 
+    quitarError(descripcionTarea, errorDescripcion); 
 }
 
 formulario.addEventListener("submit", validarFormulario);
@@ -47,20 +47,41 @@ function validFormFieldInput(data) {
 function validarFormulario(event) {
     event.preventDefault();
 
+    let formularioValido = true;
+
     if (!validFormFieldInput(nombreTarea.value)) {
         nombreTarea.classList.add("campo-error");
         errorNombre.textContent = "datos necesarios!"
+        formularioValido = false;
     }
 
     if (!validFormFieldInput(fechaTarea.value)) {
         fechaTarea.classList.add("campo-error");
         errorFecha.textContent = "datos necesarios!"
+        formularioValido = false;
     }
 
     if (!validFormFieldInput(descripcionTarea.value)) {
         descripcionTarea.classList.add("campo-error");
         errorDescripcion.textContent = "datos necesarios!"
+        formularioValido = false;
     }
+
+    if(!formularioValido) {
+        return;
+    }
+
+    const nombre = nombreTarea.value;
+    const fechaEntrega = fechaTarea.value;
+    const descripcion = descripcionTarea.value;
+    const estado = 'PORHACER';
+
+    taskManager.addTask(nombre, fechaEntrega, descripcion, estado);
+
+    console.log(taskManager.tasks);
+
+    formulario.reset();
+
 }
 
 function quitarError(data, error) {
@@ -80,9 +101,6 @@ descripcionTarea.addEventListener("input", function () {
     quitarError(descripcionTarea, errorDescripcion);
 });
 
-const taskManager = new TaskManager();
-console.log(taskManager.tasks);
-
 const btnCompletar = document.querySelectorAll(".btn-completar");
 
 for (let i = 0; i < btnCompletar.length; i++) {
@@ -94,3 +112,6 @@ function completada(event) {
 
     tarea.classList.add("completada");
 }
+
+botonAgregar.addEventListener("click", saleFormulario);
+botonCancelar.addEventListener("click", guardarFormulario);
