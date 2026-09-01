@@ -115,6 +115,7 @@ function mostrarTareas() {
 
         const card = document.createElement("div");
         card.classList.add("card", "tarea");
+        card.dataset.id = tarea.id;
 
         card.innerHTML = `
             <div class="tarea-head"> 
@@ -171,4 +172,12 @@ botonCancelar.addEventListener("click", guardarFormulario);
 
 function eliminarTarea(event) {
     const tarea = event.currentTarget.closest(".tarea");
+
+    const id = Number(tarea.dataset.id);
+
+    taskManager.tasks = taskManager.tasks.filter(tarea => tarea.id !== id);
+
+    localStorage.setItem("tareas", JSON.stringify(taskManager.tasks));
+
+    mostrarTareas();
 }
