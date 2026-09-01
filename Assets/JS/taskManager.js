@@ -2,6 +2,23 @@ class TaskManager {
     constructor(currentId = 0) {
         this.tasks = [];
         this.currentId = currentId;
+
+        this.cargarTareas();
+    }
+
+    cargarTareas() { 
+        const tareasGuardadas = localStorage.getItem("tareas"); 
+        
+        if (tareasGuardadas) { 
+            
+            this.tasks = JSON.parse(tareasGuardadas); 
+            
+            if (this.tasks.length > 0) { 
+            
+                this.currentId = Math.max( ...this.tasks.map(tarea => tarea.id) 
+                ); 
+            } 
+        } 
     }
 
 
@@ -18,6 +35,7 @@ class TaskManager {
         };
 
         this.tasks.push(nuevaTarea);
+        localStorage.setItem("tareas", JSON.stringify(this.tasks));
         return nuevaTarea;
     }
 }

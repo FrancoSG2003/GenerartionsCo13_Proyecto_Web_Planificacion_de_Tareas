@@ -15,6 +15,7 @@ const errorFecha = document.getElementById("errorFecha");
 const errorDescripcion = document.getElementById("errorDescripcion");
 
 const taskManager = new TaskManager();
+mostrarTareas();
 
 const hoy = new Date().toISOString().split("T")[0];
 fechaTarea.min = hoy;
@@ -78,9 +79,14 @@ function validarFormulario(event) {
 
     taskManager.addTask(nombre, fechaEntrega, descripcion, estado);
 
+    mostrarTareas();
+
     console.log(taskManager.tasks);
 
     formulario.reset();
+
+    formulario.classList.add("d-none");
+    overlay.classList.add("d-none");
 
 }
 
@@ -101,11 +107,57 @@ descripcionTarea.addEventListener("input", function () {
     quitarError(descripcionTarea, errorDescripcion);
 });
 
-const btnCompletar = document.querySelectorAll(".btn-completar");
 
-for (let i = 0; i < btnCompletar.length; i++) {
-    btnCompletar[i].addEventListener("click", completada);
+function mostrarTareas() {
+    listaTareas.innerHTML = "";
+
+    taskManager.tasks.forEach(tarea => {
+
+        const card = document.createElement("div");
+        card.classList.add("card", "tarea");
+
+        card.innerHTML = `
+            <div class="tarea-head"> 
+                <h5 class="card-header"> 
+                    <b>${tarea.nombre}</b> 
+                </h5> 
+                <span class="fecha"> 
+                    <b>${tarea.fechaEntrega}</b> 
+                </span> 
+            </div> 
+            
+            <div class="card-body acciones"> 
+                <p class="card-text descripcion"> 
+                    ${tarea.descripcion} 
+                </p> 
+                
+                <button class="btn-completar"> 
+                    <i class="bi bi-bookmark-check-fill">Finalizada</i> 
+                </button> 
+                
+                <button class="btn-eliminar"> 
+                    <i class="bi bi-trash3-fill">Borrar</i> 
+                </button> 
+            </div>
+        `;
+
+        listaTareas.appendChild(card);
+    })
+
+    const btnCompletar = document.querySelectorAll(".btn-completar");
+
+        for (let i = 0; i < btnCompletar.length; i++) {
+            btnCompletar[i].addEventListener("click", completada);
+        }
+
+    const btnEliminar = document.querySelectorAll(".btn-eliminar");
+
+        for (let i = 0; i < btnEliminar.length; i++) {
+            btnEliminar[i].addEventListener("click", eliminarTarea);
+        }
 }
+
+
 
 function completada(event) {
     const tarea = event.currentTarget.closest(".tarea");
@@ -115,3 +167,8 @@ function completada(event) {
 
 botonAgregar.addEventListener("click", saleFormulario);
 botonCancelar.addEventListener("click", guardarFormulario);
+
+
+function eliminarTarea(event) {
+    const tarea = event.currentTarget.closest(".tarea");
+}
